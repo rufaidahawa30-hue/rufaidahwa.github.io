@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#e9e3da" />
+  <title>Afiya Couture — Elegance with Meaning</title>
+  <meta name="description" content="Afiya Couture: store baju kekinian bernuansa fairy. Warna putih, beige, biru yang elegan & modern." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sparkles" aria-hidden="true"></div>
+
+  <header class="header" id="top">
+    <a class="brand" href="#top" aria-label="Afiya Couture">
+      <img src="assets/logo_afiya.png" class="brand-logo" alt="Logo Afiya Couture">
+      <div class="brand-text">
+        <h1>Afiya Couture</h1>
+        <span>Elegance with Meaning</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#koleksi">Koleksi</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <div class="tools">
+      <button id="musicToggle" class="icon-btn" title="Musik Latar">♫</button>
+      <button id="openCart" class="cart-btn" aria-label="Buka Keranjang">
+        <span class="cart-icon">🛍</span><span id="cartCount" class="cart-count">0</span>
+      </button>
+    </div>
+    <audio id="backsound" src="assets/backsound.wav" preload="auto" loop></audio>
+  </header>
+
+  <section class="hero">
+    <div class="slider" id="slider">
+      <div class="slides">
+        <article class="slide" style="background-image:url('assets/look1.jpg')">
+          <div class="overlay">
+            <h2>Kaliana Vest</h2>
+            <p>Vest brukat premium bernuansa fairy modern.</p>
+            <a href="#koleksi" class="btn">Lihat Koleksi</a>
+          </div>
+        </article>
+        <article class="slide" style="background-image:url('assets/look2.jpg')">
+          <div class="overlay">
+            <h2>Carine Vest</h2>
+            <p>Statement elegan dalam warna lembut.</p>
+            <a href="#koleksi" class="btn">Belanja Sekarang</a>
+          </div>
+        </article>
+        <article class="slide" style="background-image:url('assets/look3.jpg')">
+          <div class="overlay">
+            <h2>Narnia Set</h2>
+            <p>Vintage romantis, potongan kekinian.</p>
+            <a href="#koleksi" class="btn">Jelajahi</a>
+          </div>
+        </article>
+      </div>
+      <button id="prev" class="nav-btn">&#10094;</button>
+      <button id="next" class="nav-btn">&#10095;</button>
+      <div id="dots" class="dots"></div>
+    </div>
+  </section>
+
+  <main>
+    <section id="koleksi" class="collection">
+      <h3 class="section-title">Koleksi Terbaru</h3>
+      <div class="grid" id="productGrid" aria-live="polite"></div>
+    </section>
+
+    <section id="tentang" class="about">
+      <div class="about-card">
+        <h3>Tentang Afiya Couture</h3>
+        <p>Afiya Couture menghadirkan modest wear yang modern, elegan, dan bermakna. Palet putih–beige–biru dipadukan dengan detail lace lembut dan siluet flowy untuk kesan fairy yang memikat.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="kontak" class="footer">
+    <div class="footer-grid">
+      <div>
+        <h4>Kontak</h4>
+        <p>Email: hello@afiyacouture.example</p>
+        <p>Instagram: @afiyacouture</p>
+      </div>
+      <div>
+        <h4>Kebijakan</h4>
+        <p>Pengiriman &amp; Pengembalian</p>
+        <p>Privasi &amp; Syarat</p>
+      </div>
+    </div>
+    <button id="toTop" class="to-top" aria-label="Kembali ke atas">↟</button>
+    <p class="copy">© <span id="year"></span> Afiya Couture. All rights reserved.</p>
+  </footer>
+
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-head">
+      <h4>Keranjang</h4>
+      <button id="closeCart" class="icon-btn">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-summary">
+      <div class="row"><span>Subtotal</span><span id="subtotal">Rp0</span></div>
+      <button id="checkoutBtn" class="btn full">Checkout</button>
+    </div>
+  </aside>
+  <div id="backdrop" class="backdrop" aria-hidden="true"></div>
+
+  <div id="checkoutModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-head">
+        <h4>Checkout</h4>
+        <button id="closeCheckout" class="icon-btn">✕</button>
+      </div>
+      <form id="checkoutForm" class="checkout-form">
+        <label>Nama Lengkap
+          <input type="text" name="name" placeholder="Nama kamu" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" placeholder="email@contoh.com" required>
+        </label>
+        <label>Alamat
+          <textarea name="address" placeholder="Jalan, Kota, Kode Pos" required></textarea>
+        </label>
+        <label>Metode Pembayaran
+          <select name="payment" required>
+            <option value="">Pilih</option>
+            <option>Transfer Bank</option>
+            <option>E-Wallet</option>
+            <option>Kartu Kredit/Debit</option>
+          </select>
+        </label>
+        <button class="btn full" type="submit">Bayar Sekarang</button>
+        <p class="tiny">*Simulasi demo—tidak memproses pembayaran nyata.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

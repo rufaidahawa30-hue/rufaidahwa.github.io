@@ -1,0 +1,88 @@
+/* Lightweight Afiya Couture Theme */
+:root{
+  --bg:#ffffff;
+  --beige:#eee8df;
+  --beige-2:#f5efe6;
+  --blue:#9cb7d6;
+  --ink:#2d2a26;
+  --muted:#6e6a67;
+  --accent:#b78b6e;
+  --shadow:0 10px 26px rgba(30,30,46,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),var(--beige-2));color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif}
+img{max-width:100%;display:block}
+
+.header{position:sticky;top:0;z-index:30;backdrop-filter:saturate(150%) blur(10px);background:rgba(255,255,255,.7);border-bottom:1px solid rgba(0,0,0,.05);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.brand-logo{width:44px;height:44px;object-fit:cover;border-radius:10px;box-shadow:var(--shadow)}
+.brand-text h1{font-family:"Playfair Display",serif;font-size:18px;margin:0}
+.brand-text span{font-size:12px;color:var(--muted)}
+.nav{display:flex;gap:16px}
+.nav a{color:var(--ink);text-decoration:none;font-weight:600;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:linear-gradient(90deg,var(--blue),var(--accent));transform:scaleX(0);transform-origin:left;transition:.35s}
+.nav a:hover::after{transform:scaleX(1)}
+.tools{display:flex;align-items:center;gap:8px}
+.icon-btn,.cart-btn{border:0;background:var(--beige);padding:8px 10px;border-radius:12px;box-shadow:var(--shadow);cursor:pointer}
+.cart-icon{margin-right:6px}
+.cart-count{background:var(--blue);color:#fff;border-radius:9px;padding:2px 6px;font-size:12px;margin-left:6px}
+
+.sparkles{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(156,183,214,.35),transparent 45%),radial-gradient(rgba(183,139,110,.18),transparent 50%);background-size:1000px 1000px,1000px 1000px;background-position:0 0,50% 50%;animation:drift 30s linear infinite}
+@keyframes drift{to{background-position:100% 100%,0% 0%}}
+
+.hero{position:relative;min-height:70vh;border-bottom:1px solid rgba(0,0,0,.06)}
+.slider{position:relative;height:70vh;overflow:hidden;border-radius:22px;margin:14px;box-shadow:var(--shadow)}
+.slides{display:flex;width:300%;height:100%;transition:transform .6s ease}
+.slide{flex:1 0 100%;background-size:cover;background-position:center;position:relative}
+.slide .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.6));display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:28px}
+.slide h2{font-family:"Playfair Display",serif;font-size:36px;margin:0}
+.btn{display:inline-block;background:linear-gradient(90deg,var(--blue),var(--accent));color:#fff;padding:9px 14px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}
+.nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.6);border:0;border-radius:999px;padding:6px 10px;cursor:pointer}
+#prev{left:10px} #next{right:10px}
+.dots{position:absolute;bottom:12px;left:0;right:0;display:flex;gap:7px;justify-content:center}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;background:rgba(255,255,255,.6);box-shadow:var(--shadow);cursor:pointer}
+.dots button.active{background:linear-gradient(90deg,var(--blue),var(--accent))}
+
+.section-title{font-family:"Playfair Display",serif;font-size:26px;text-align:center;margin:36px 0 12px}
+.collection .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding:0 14px 30px}
+.card{background:#fff;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;position:relative;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card .img-wrap{aspect-ratio:3/4;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;filter:saturate(.96)}
+.card .content{padding:12px}
+.card h4{margin:4px 0 4px;font-size:16px}
+.price{font-weight:700}
+.actions{display:flex;gap:8px;margin-top:8px}
+.small{font-size:12px;color:var(--muted)}
+.badge{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.8);border-radius:999px;padding:5px 9px;font-size:11px;backdrop-filter:blur(6px)}
+
+.footer{padding:30px 14px;border-top:1px solid rgba(0,0,0,.06);background:linear-gradient(180deg,rgba(255,255,255,0),var(--beige-2))}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.to-top{position:fixed;right:14px;bottom:14px;border:0;background:linear-gradient(90deg,var(--blue),var(--accent));color:#fff;border-radius:50%;width:42px;height:42px;box-shadow:var(--shadow);cursor:pointer;display:none}
+.copy{text-align:center;color:var(--muted)}
+
+.cart-drawer{position:fixed;right:-400px;top:0;bottom:0;width:340px;background:#fff;box-shadow:-10px 0 30px rgba(0,0,0,.1);transition:right .3s;z-index:50;display:flex;flex-direction:column}
+.cart-drawer.open{right:0}
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:.3s;z-index:40}
+.backdrop.show{opacity:1;pointer-events:auto}
+.cart-head{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid rgba(0,0,0,.06)}
+.cart-items{flex:1;overflow:auto;padding:10px 12px;display:flex;flex-direction:column;gap:10px}
+.cart-item{display:grid;grid-template-columns:60px 1fr auto;gap:8px;align-items:center;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:8px}
+.qty{display:flex;gap:6px;align-items:center}
+.qty button{border:0;background:var(--beige);padding:4px 8px;border-radius:8px;cursor:pointer}
+.cart-summary{border-top:1px solid rgba(0,0,0,.06);padding:12px 14px}
+.row{display:flex;justify-content:space-between;margin-bottom:8px}
+.btn.full{width:100%}
+
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s;z-index:60}
+.modal.show{opacity:1;pointer-events:auto}
+.modal-content{background:#fff;border-radius:16px;max-width:520px;width:90%;box-shadow:var(--shadow)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,.06);padding:10px 14px}
+.checkout-form{padding:14px;display:grid;gap:10px}
+.checkout-form input,.checkout-form textarea,.checkout-form select{width:100%;padding:9px;border-radius:10px;border:1px solid rgba(0,0,0,.12);background:var(--beige-2)}
+.tiny{font-size:12px;color:var(--muted)}
+
+@media (max-width:720px){
+  .slides .overlay h2{font-size:24px}
+  .slider{height:60vh}
+}
